@@ -1,6 +1,6 @@
 class Bookmarks
-  attr_accessor :bookmarks
+  attr_accessor :list
   def initialize
-    @bookmarks = ["www.google.com", "www.bbc.co.uk"]
+    @list = ["www.google.com", "www.bbc.co.uk"]
   end
 end 

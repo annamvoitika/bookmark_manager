@@ -1,0 +1,8 @@
+User Story 1
+
+As a User,
+in order to see all bookmarks I've saved,
+I want to see a list of my bookmarks.
+
+Bookmarks   User
+list_all

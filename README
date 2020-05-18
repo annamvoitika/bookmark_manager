@@ -6,3 +6,6 @@ I want to see a list of my bookmarks.
 
 Bookmarks   User
 list_all
+
+Client -> request (GET) -> Controller -> Model -> View
+/bookmarks <- response <- app.rb <- class Bookmark <- bookmarks.erb 

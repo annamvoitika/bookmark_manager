@@ -8,11 +8,23 @@ Bookmarks   User
 list_all
 
 Client -> request (GET) -> Controller -> Model -> View
-/bookmarks <- response <- app.rb <- class Bookmark <- bookmarks.erb 
+/bookmarks <- response <- app.rb <- class Bookmark <- bookmarks.erb
 
 
-User Story 2 
+User Story 2
 
 As a time-pressed user
 So that I can save a website
 I would like to add the site's address and title to bookmark manager
+
+
+...
+
+Database:
+psql bookmarks
+
+Connect to database:
+\c bookmarks 
+
+Inspect the list of tables:
+\dt (should include a "bookmarks" table)

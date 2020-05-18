@@ -1,6 +1,8 @@
+require 'pg'
 class Bookmarks
-  attr_accessor :list
-  def initialize
-    @list = ["www.google.com", "www.bbc.co.uk"]
+  def self.all
+    connection = PG.connect(dbname: 'bookmarks')
+    connection.exec("SELECT*FROM bookmarks;")
   end
-end 
+
+end

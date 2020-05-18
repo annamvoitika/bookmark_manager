@@ -1,8 +1,9 @@
 feature 'List of all bookmarks' do
   scenario 'shows all saved bookmarks' do
     visit '/bookmarks'
-    expect(page).to have_content 'www.google.com'
-    expect(page).to have_content 'www.bbc.co.uk'
+    expect(page).to have_content 'http://www.google.com'
+    expect(page).to have_content 'http://www.destroyallsoftware.com'
+    expect(page).to have_content 'http://www.makersacademy.com'
   end
 
-end 
+end

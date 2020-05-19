@@ -24,7 +24,7 @@ Database:
 psql bookmarks
 
 Connect to database:
-\c bookmarks 
+\c bookmarks
 
 Inspect the list of tables:
 \dt (should include a "bookmarks" table)
@@ -34,3 +34,27 @@ To create a test database, follow the steps below:
 1.Run psql postgres in the terminal
 2.Run CREATE DATABASE "bookmarks_test"; to create a database
 3.Run CREATE TABLE bookmarks (id SERIAL, url VARCHAR(60)); to create a table
+
+Before running rspec:
+ruby ./spec/setup_test_database.rb
+
+Example of feature test with a database:
+
+require 'pg'
+
+feature 'Viewing bookmarks' do
+  scenario 'A user can see bookmarks' do
+    connection = PG.connect(dbname: 'bookmark_manager_test')
+
+    # Add the test data
+    connection.exec("INSERT INTO bookmarks VALUES(1, 'http://www.makersacademy.com');")
+    connection.exec("INSERT INTO bookmarks VALUES(2, 'http://www.destroyallsoftware.com');")
+    connection.exec("INSERT INTO bookmarks VALUES(3, 'http://www.google.com');")
+
+    visit('/bookmarks')
+
+    expect(page).to have_content "http://www.makersacademy.com"
+    expect(page).to have_content "http://www.destroyallsoftware.com"
+    expect(page).to have_content "http://www.google.com"
+  end
+end

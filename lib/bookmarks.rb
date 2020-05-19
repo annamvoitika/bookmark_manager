@@ -6,9 +6,9 @@ class Bookmarks
     else
       connection = PG.connect(dbname: 'bookmarks')
     end
-    
-    result = connection.exec("SELECT*FROM bookmarks;")
-    result.map { |bookmark| bookmark['url'] }
+
+   result = connection.exec("SELECT*FROM bookmarks;")
+   result.map { |bookmark| bookmark['url'] }
   end
 
 end

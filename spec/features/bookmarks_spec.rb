@@ -6,4 +6,5 @@ feature 'List of all bookmarks' do
     expect(page).to have_content 'http://www.makersacademy.com'
   end
 
+
 end

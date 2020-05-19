@@ -98,6 +98,7 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 

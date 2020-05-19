@@ -28,3 +28,9 @@ Connect to database:
 
 Inspect the list of tables:
 \dt (should include a "bookmarks" table)
+
+To create a test database, follow the steps below:
+
+1.Run psql postgres in the terminal
+2.Run CREATE DATABASE "bookmarks_test"; to create a database
+3.Run CREATE TABLE bookmarks (id SERIAL, url VARCHAR(60)); to create a table

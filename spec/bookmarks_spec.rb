@@ -5,7 +5,20 @@ RSpec.describe Bookmarks do
     expect(bookmarks.class).to eq(Bookmarks)
   end
 
-  # it 'can list all bookmarks' do
-  #  expect(Bookmarks.all.include?('http://www.makersacademy.com')).to eq(true)
-  # end
+  describe '.all' do
+    it 'returns a list of bookmarks' do
+      connection = PG.connect(dbname: 'bookmarks_test')
+  
+      # Add the test data
+      connection.exec("INSERT INTO bookmarks (url) VALUES ('http://www.makersacademy.com');")
+      connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.destroyallsoftware.com');")
+      connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.google.com');")
+  
+      bookmarks = Bookmarks.all
+  
+      expect(bookmarks).to include('http://www.makersacademy.com')
+      expect(bookmarks).to include('http://www.destroyallsoftware.com')
+      expect(bookmarks).to include('http://www.google.com')
+    end
+  end
 end
